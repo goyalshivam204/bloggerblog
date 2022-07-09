@@ -1,0 +1,136 @@
+@import "typography";
+
+#my-navbar {
+    padding: 10px 20px;
+    background-color: $light-black;
+    color: white;
+    display: flex;
+    //   align-items: ;
+    flex-grow: 1;
+
+    .my-brand-logo {
+        display: inline;
+
+        img {
+            width: 70px;
+            border-radius: 50%;
+        }
+    }
+
+    .my-form {
+        max-width: 300px;
+        display: flex;
+        align-items: center;
+        border: solid 2px black;
+        border-radius: 10px;
+
+        background-color: white;
+        color: black;
+        padding: 5px 20px;
+        font-size: 20px;
+
+        label {
+            margin: 0;
+            padding-right: 10px;
+        }
+
+        input[type="search"] {
+            margin: 0;
+            border: none;
+            width: 100%;
+
+            &:focus {
+                outline: 0 none;
+            }
+        }
+
+        &:focus-within {
+            box-shadow: 0px 0px 5px 2px whitesmoke;
+        }
+    }
+
+    .my-nav-toggle {
+        display: flex;
+        flex-grow: 1;
+
+        .my-nav-items {
+            display: flex;
+        }
+
+        .my-nav-right {
+            margin-left: auto;
+        }
+
+        .my-nav-item {
+            margin: auto 10px;
+            padding-top: 10px;
+        }
+    }
+
+    .my-toggle-button {
+        display: none;
+    }
+
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+
+        .my-nav-toggle {
+            display: none;
+            flex-direction: column;
+
+            .my-nav-items {
+                row-gap: 10px;
+                flex-direction: column;
+            }
+
+            .my-nav-right {
+                margin-left: 0;
+            }
+        }
+
+        .toggle-visible {
+            display: flex;
+        }
+
+        .toggle-visibility {
+            display: flex;
+        }
+
+        .my-toggle-button {
+            display: block;
+            align-self: center;
+            margin-left: auto;
+            background-color: transparent;
+            border: none;
+
+            i {
+                background-color: transparent;
+                color: white;
+                font-size: 40px;
+            }
+        }
+    }
+
+    .main-route-link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .active-main-route {
+        text-decoration: underline;
+        font-weight: 600;
+        color: white;
+        font-size: 18px;
+    }
+
+    button{
+    background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        
+    }
+}

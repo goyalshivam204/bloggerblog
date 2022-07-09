@@ -1,0 +1,112 @@
+#my-navbar {
+  padding: 10px 20px;
+  background-color: #2d3236;
+  color: white;
+  display: flex;
+  flex-grow: 1;
+}
+#my-navbar .my-brand-logo {
+  display: inline;
+}
+#my-navbar .my-brand-logo img {
+  width: 70px;
+  border-radius: 50%;
+}
+#my-navbar .my-form {
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  border: solid 2px black;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  padding: 5px 20px;
+  font-size: 20px;
+}
+#my-navbar .my-form label {
+  margin: 0;
+  padding-right: 10px;
+}
+#my-navbar .my-form input[type=search] {
+  margin: 0;
+  border: none;
+  width: 100%;
+}
+#my-navbar .my-form input[type=search]:focus {
+  outline: 0 none;
+}
+#my-navbar .my-form:focus-within {
+  box-shadow: 0px 0px 5px 2px whitesmoke;
+}
+#my-navbar .my-nav-toggle {
+  display: flex;
+  flex-grow: 1;
+}
+#my-navbar .my-nav-toggle .my-nav-items {
+  display: flex;
+}
+#my-navbar .my-nav-toggle .my-nav-right {
+  margin-left: auto;
+}
+#my-navbar .my-nav-toggle .my-nav-item {
+  margin: auto 10px;
+  padding-top: 10px;
+}
+#my-navbar .my-toggle-button {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  #my-navbar {
+    flex-direction: column;
+  }
+  #my-navbar .my-nav-toggle {
+    display: none;
+    flex-direction: column;
+  }
+  #my-navbar .my-nav-toggle .my-nav-items {
+    row-gap: 10px;
+    flex-direction: column;
+  }
+  #my-navbar .my-nav-toggle .my-nav-right {
+    margin-left: 0;
+  }
+  #my-navbar .toggle-visible {
+    display: flex;
+  }
+  #my-navbar .toggle-visibility {
+    display: flex;
+  }
+  #my-navbar .my-toggle-button {
+    display: block;
+    align-self: center;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+  }
+  #my-navbar .my-toggle-button i {
+    background-color: transparent;
+    color: white;
+    font-size: 40px;
+  }
+}
+#my-navbar .main-route-link {
+  color: white;
+  text-decoration: none;
+}
+#my-navbar .active-main-route {
+  text-decoration: underline;
+  font-weight: 600;
+  color: white;
+  font-size: 18px;
+}
+#my-navbar button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,74 @@
+$bp-xs: 0px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+//Colors
+
+$light-red: #f52932;
+$dark-red: #c00000;
+$light-pink: #fcc8c9;
+$dark-pink: #f55e61;
+$purple: #6b344e;
+$light-grey: #dadbe6;
+$dark-grey: #9597a6;
+$white: #ffffff;
+$light-black: #2d3236;
+
+//Font Styles
+@mixin h1 {
+  font-size: 66px;
+}
+
+@mixin h2 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+@mixin h3 {
+  font-size: 30px;
+}
+
+@mixin h4 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+@mixin h5 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+@mixin body {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@mixin image-container($ratio: 16/9) {
+  width: 100%;
+  height: 0;
+  padding-top: calc(100% / #{$ratio});
+  position: relative;
+}
+
+@mixin image-container-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@mixin box-shadow {
+  background-color: white;
+  max-width: 300px;
+  padding: 10px 10px;
+  margin: 10px;
+  box-shadow: 0 0 5px #9e9e9e;
+  border-radius: 10px;
+}
