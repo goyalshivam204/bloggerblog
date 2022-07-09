@@ -30,8 +30,10 @@ function App() {
   const [user,setUser]=useState(null);
   const [currentBlog,setCurrentBlog]=useState();
   const [myBlogs,setMyBlogs]=useState();
+  const [loading,setLoading]=useState(true);
   const navigate=useNavigate();
   const fetchData =  () => {
+    setLoading(true);
     const baseUrl = process.env.REACT_APP_HOSTNAME;
     axios.get(baseUrl,{
       headers: {
@@ -42,12 +44,12 @@ function App() {
     
       // console.log(result.data);
       setBlogs(result.data);
+      setLoading(false);
     }).catch((err)=>{
       console.log("some error occurred in fetch data: ",err);
     });
   }
   const isAuthenticated= ()=>{
-    
     const baseUrl = process.env.REACT_APP_HOSTNAME;
     // console.log("p1");
     axios.get(baseUrl+"isAuthenticated",{
@@ -90,14 +92,18 @@ function App() {
     currentBlog,
     setCurrentBlog,
     setMyBlogs, 
-    myBlogs
+    myBlogs,
+    loading,
+    setLoading
    
   }
 
 
   useEffect(()=>{
+    // setLoading(true);
     isAuthenticated();
     fetchData();
+    // setLoading(false);
     // console.log("So, it runs")
   },[])
 
@@ -110,8 +116,9 @@ function App() {
     }
   },[user])
   useEffect(() => {
-    console.log("called");
+    // setLoading(true);
     fetchData();
+    // setLoading(false);
     
   }, [isLogged]);
 

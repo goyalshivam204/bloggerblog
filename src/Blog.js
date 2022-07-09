@@ -7,14 +7,18 @@ function Blog() {
    
     const {blog_id}=useParams();
     const appContext=useContext(AppContext);
-    const {currentBlog,setCurrentBlog}= appContext;
+    const {currentBlog,setCurrentBlog,loading,setLoading}= appContext;
     
     const fetchBlog = (id) => {
+        setLoading(true);
+
         const baseUrl = process.env.REACT_APP_HOSTNAME+"blog/"+id;
         console.log(baseUrl);
         axios.get(baseUrl).then((result) => {
             console.log(result.data);
             setCurrentBlog(result.data);
+            setLoading(false);
+
         }).catch((err) => {
             console.log("some error occurred in fetch blog: ", err);
         });
@@ -28,7 +32,7 @@ function Blog() {
     return (
        <div className='blog-detailed' >
             
-            {currentBlog && 
+            {!loading && 
                 <>
                     <div className="blog-author">
                         <img className='author-img' src={ currentBlog.author.image} alt="img" />
@@ -43,7 +47,7 @@ function Blog() {
                     </div>
                 </>
             }
-            {!currentBlog && 
+            {loading && 
                 <div>loading</div>
             }
             
