@@ -32,7 +32,7 @@ function Blog() {
     return (
        <div className='blog-detailed' >
             
-            {!loading && 
+            {!loading && currentBlog && 
                 <>
                     <div className="blog-author">
                         <img className='author-img' src={ currentBlog.author.image} alt="img" />
@@ -47,7 +47,7 @@ function Blog() {
                     </div>
                 </>
             }
-            {loading && 
+            {loading && !currentBlog && 
                 <div>loading</div>
             }
             
