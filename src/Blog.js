@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { AppContext } from './App';
 import axios from 'axios';
+import Spinner from './Spinner';
 
 function Blog() {
    
@@ -48,7 +49,7 @@ function Blog() {
                 </>
             }
             {loading && !currentBlog && 
-                <div>loading</div>
+                <Spinner/>
             }
             
         </div>

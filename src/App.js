@@ -16,6 +16,7 @@ import {
 import { useCookies } from "react-cookie";
 import { useNavigate } from 'react-router-dom'; 
 import Profile from './Profile';
+import Spinner from './Spinner';
 
 
 
@@ -132,14 +133,19 @@ function App() {
       <AppContext.Provider value={value}>
 
           <Navbar />
+          {!loading &&
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp/>} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/blog/:blog_id" element={<Blog/>} />
+            <Route path="/blog/:blog_id" element={<Blog />} />
             <Route path="/createblog" element={<CreateBlog />} />
           </Routes>
+          }
+          {loading && 
+          <Spinner/>}
+         
       
       </AppContext.Provider>
     </div>
