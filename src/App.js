@@ -35,6 +35,7 @@ function App() {
   const navigate=useNavigate();
   const fetchData =  () => {
     setLoading(true);
+    setBlogs(null);
     const baseUrl = process.env.REACT_APP_HOSTNAME;
     axios.get(baseUrl,{
       headers: {
@@ -59,6 +60,8 @@ function App() {
         }
     }).then((result) => {
       // console.log("result:",result);
+      setUser(null);
+      setIsLogged(false);
       if(result.data.user){
         // localStorage.setItem("user", JSON.stringify(result.data.user));
         setUser(result.data.user);
@@ -70,6 +73,7 @@ function App() {
       }
     }).catch((err) => {
       console.log(err);
+      setUser(null);
       setIsLogged(false);
       console.log("some error occurred in isAuthenticated client side data: ", err);
     });
@@ -101,27 +105,24 @@ function App() {
 
 
   useEffect(()=>{
-    // setLoading(true);
     isAuthenticated();
     fetchData();
-    // setLoading(false);
-    // console.log("So, it runs")
   },[])
 
-  useEffect(()=>{
-    // console.log("called");
-    if(user){
-      setIsLogged(true);
-    }else{
-      setIsLogged(false);
-    }
-  },[user])
-  useEffect(() => {
-    // setLoading(true);
-    fetchData();
-    // setLoading(false);
+  // useEffect(()=>{
+  //   // console.log("called");
+  //   if(user){
+  //     setIsLogged(true);
+  //   }else{
+  //     setIsLogged(false);
+  //   }
+  // },[user])
+  // useEffect(() => {
+  //   // setLoading(true);
+  //   fetchData();
+  //   // setLoading(false);
     
-  }, [isLogged]);
+  // }, [isLogged]);
 
 
 
@@ -144,7 +145,8 @@ function App() {
           </Routes>
           }
           {loading && 
-          <Spinner/>}
+          <Spinner/>
+          }
          
       
       </AppContext.Provider>
